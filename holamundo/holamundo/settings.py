@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # para que busque en la carpeta apps
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +56,7 @@ ROOT_URLCONF = 'holamundo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['holamundo/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,6 +69,7 @@ TEMPLATES = [
     },
 ]
 
+# donde va estar el aplicativo
 WSGI_APPLICATION = 'holamundo.wsgi.application'
 
 
@@ -79,6 +82,22 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': 'srv1199.hstgr.io',
+        'PORT': '3306',
+        'USER': 'u504036119_holamundo',
+        'PASSWORD': 'Edwin19982.',
+        'NAME': 'u504036119_holamundo',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
+    }
+}
+
 
 
 # Password validation
